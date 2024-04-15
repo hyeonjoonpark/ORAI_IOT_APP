@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:orai/routes/app_route.dart';
 
-void main() {
+Future<void> main() async {
   runApp(const MyApp());
 }
 

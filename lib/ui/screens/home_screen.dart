@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:orai/ui/components/home_widget.dart';
+import 'package:orai/ui/components/my_car.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -19,7 +20,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // TabBarView 추가
           children: [
             HomeWidget(),
-            Center(child: Icon(Icons.person)),
+            MyCarWidget(),
             Center(child: Icon(Icons.settings)),
           ],
         ),
