@@ -103,8 +103,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                         child: Expanded(
                           child: FlutterMap(
                             options: MapOptions(
-                              center: currentLocation,
-                              zoom: 13.0,
+                              // currentLocation이 null이 아니면 currentLocation을 사용하고, null이면 서울의 좌표를 기본값으로 사용합니다.
+                              initialCenter: currentLocation ??
+                                  const LatLng(37.715133, 126.734086),
+                              initialZoom: 13.0,
                               maxZoom: 18.0,
                               minZoom: 10.0,
                             ),
