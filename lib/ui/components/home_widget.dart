@@ -58,6 +58,29 @@ class _HomeWidgetState extends State<HomeWidget> {
           child: Column(
             children: [
               Container(
+                margin: EdgeInsets.only(left: 0.05.sw, top: 0.03.sh),
+                alignment: Alignment.centerLeft,
+                child: const Text(
+                  "항상 주차장이 부족하여 힘드셨나요?",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w900,
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 0.05.sw),
+                alignment: Alignment.centerLeft,
+                child: const Text(
+                  "지금 바로 주변 주차장을 검색하고 예약 해보세요!",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w900,
+                  ),
+                ),
+              ),
+
+              SizedBox(
                 width: 0.9.sw,
                 child: TextFormField(
                   focusNode: _focusNode,
@@ -83,7 +106,11 @@ class _HomeWidgetState extends State<HomeWidget> {
               ),
               const SizedBox(height: 20),
               // 나중에 구글 지도 API 연결합니다
-              buildMap(currentLocation)
+              SizedBox(
+                height: 0.3.sh,
+                width: 0.9.sw,
+                child: buildMap(currentLocation),
+              ),
             ],
           ),
         ),
