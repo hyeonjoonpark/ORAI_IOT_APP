@@ -39,6 +39,9 @@ dependencies:
   get: ^4.6.6
   http: ^1.2.1
   json_serializable: ^6.7.1
+  flutter_map: ^6.1.0
+  latlong2: ^0.9.1
+  geolocator: ^11.0.0
 
 dev_dependencies:
   flutter_test:

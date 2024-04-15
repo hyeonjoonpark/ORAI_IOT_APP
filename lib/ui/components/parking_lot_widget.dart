@@ -12,22 +12,8 @@ class _ParkingLotWidgetState extends State<ParkingLotWidget> {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      builder: (context, child) => Scaffold(
-        body: Center(
-          child: Column(
-            children: [
-              const SizedBox(height: 100),
-              Container(
-                width: 0.9.sw,
-                child: const LinearProgressIndicator(
-                  backgroundColor: Colors.grey,
-                  valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
-                  value: 0.33,
-                ),
-              )
-            ],
-          ),
-        ),
+      builder: (context, child) => const Scaffold(
+        body: Center(child: Text('주차장')),
       ),
     );
   }

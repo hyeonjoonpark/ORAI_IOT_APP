@@ -29,6 +29,7 @@
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UISupportedInterfaceOrientations</key>
+
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
@@ -41,6 +42,12 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+
+  <key>NSLocationWhenInUseUsageDescription</key>
+  <string>이 앱은 여러분의 위치 정보를 사용하여 주차장 위치를 찾습니다.</string>
+  <key>NSLocationAlwaysUsageDescription</key>
+  <string>이 앱은 백그라운드에서도 여러분의 위치 정보를 사용하여 주차장 위치 알림을 제공합니다.</string>
+
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
