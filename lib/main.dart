@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:orai/ui/screens/home_screen.dart';
+import 'package:get/get.dart';
+import 'package:orai/routes/app_route.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return GetMaterialApp(
+      title: "My Portfoliio",
+      getPages: appRoute,
+      initialRoute: "/",
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
     );
   }
 }

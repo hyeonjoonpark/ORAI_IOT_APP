@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/instance_manager.dart';
+import 'package:get/route_manager.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:orai/controllers/map_controller.dart';
 import 'package:orai/ui/components/map.dart';
@@ -15,7 +17,7 @@ class _HomeWidgetState extends State<HomeWidget> {
   late LatLng currentLocation;
   final FocusNode _focusNode = FocusNode();
   CustomMapController mapController = CustomMapController();
-  TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
   @override
   void initState() {
     super.initState();
@@ -110,6 +112,30 @@ class _HomeWidgetState extends State<HomeWidget> {
                 height: 0.3.sh,
                 width: 0.9.sw,
                 child: buildMap(currentLocation),
+              ),
+              const SizedBox(height: 20),
+              Container(
+                width: 0.9.sw,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Get.offAndToNamed("/parkinglot");
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepPurple,
+                    padding: EdgeInsets.symmetric(vertical: 10),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  child: const Text(
+                    '주차장 예약하기',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w900,
+                    ),
+                  ),
+                ),
               ),
             ],
           ),

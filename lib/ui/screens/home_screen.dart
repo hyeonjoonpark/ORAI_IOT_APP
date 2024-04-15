@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:orai/ui/components/home_widget.dart';
-import 'package:orai/ui/components/parking_lot_widget.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -20,7 +19,6 @@ class _MyHomePageState extends State<MyHomePage> {
           // TabBarView 추가
           children: [
             HomeWidget(),
-            ParkingLotWidget(),
             Center(child: Icon(Icons.person)),
             Center(child: Icon(Icons.settings)),
           ],
@@ -29,7 +27,6 @@ class _MyHomePageState extends State<MyHomePage> {
           child: TabBar(
             tabs: [
               Tab(icon: Icon(Icons.home)),
-              Tab(icon: Icon(Icons.place)),
               Tab(icon: Icon(Icons.person)),
               Tab(icon: Icon(Icons.settings)),
             ],
