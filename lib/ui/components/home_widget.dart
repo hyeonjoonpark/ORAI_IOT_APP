@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/instance_manager.dart';
 import 'package:get/route_manager.dart';
@@ -82,7 +83,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                 ),
               ),
 
-              SizedBox(
+              Container(
                 width: 0.9.sw,
                 child: TextFormField(
                   focusNode: _focusNode,
@@ -108,7 +109,7 @@ class _HomeWidgetState extends State<HomeWidget> {
               ),
               const SizedBox(height: 20),
               // 나중에 구글 지도 API 연결합니다
-              SizedBox(
+              Container(
                 height: 0.3.sh,
                 width: 0.9.sw,
                 child: buildMap(currentLocation),

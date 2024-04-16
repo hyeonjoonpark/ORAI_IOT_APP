@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ParkingLotWidget extends StatefulWidget {
@@ -139,7 +140,7 @@ class _ParkingLotWidgetState extends State<ParkingLotWidget> {
               const SizedBox(
                 height: 30,
               ),
-              SizedBox(
+              Container(
                 width: 0.9.sw,
                 child: ElevatedButton(
                   onPressed: () {},
