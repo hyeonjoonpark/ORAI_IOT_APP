@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: "My Portfoliio",
+      title: "Copyright 2024 @ All right reserved Team Orai AUTO_PARK",
       getPages: appRoute,
       initialRoute: "/",
       debugShowCheckedModeBanner: false,
