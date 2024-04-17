@@ -34,6 +34,6 @@ class CustomMapController {
     const lat = 35.189062673028;
     const lon = 128.90405082258;
 
-    return LatLng(lat, lon);
+    return const LatLng(lat, lon);
   }
 }
