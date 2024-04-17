@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:orai/ui/components/nav_bar.dart';
 
@@ -11,6 +12,7 @@ class MyCarWidget extends StatefulWidget {
 }
 
 class _MyCarWidgetState extends State<MyCarWidget> {
+  bool isEntry = false;
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -32,31 +34,43 @@ class _MyCarWidgetState extends State<MyCarWidget> {
               ),
               const SizedBox(height: 20),
               Container(
-                width: 0.9.sw,
-                height: 0.1.sh,
                 alignment: Alignment.centerLeft,
-                decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 176, 176, 176),
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                margin: EdgeInsets.only(left: 0.06.sw),
+                child: const Text(
+                  "차량 번호 : 0000",
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w900,
+                  ),
                 ),
-                child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "차량 번호 : ",
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w900,
-                      ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Container(
+                width: 0.9.sw,
+                height: 0.05.sh,
+                alignment: Alignment.centerLeft,
+                decoration: BoxDecoration(
+                  // isEntry 값에 따라 색깔이 바뀜
+                  // true -> red
+                  // false -> grey
+                  color: isEntry
+                      ? Colors.redAccent
+                      : Color.fromARGB(255, 176, 176, 176),
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                ),
+                child: Container(
+                  margin: EdgeInsets.only(right: 0.05.sw),
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    isEntry ? "원" : "주차중이 아닙니다",
+                    style: const TextStyle(
+                      fontSize: 24,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w900,
                     ),
-                    Text(
-                      "00가 0000",
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w900,
-                      ),
-                    )
-                  ],
+                  ),
                 ),
               ),
             ],

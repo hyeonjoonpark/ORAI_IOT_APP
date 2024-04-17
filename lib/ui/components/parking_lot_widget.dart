@@ -92,7 +92,7 @@ class _ParkingLotWidgetState extends State<ParkingLotWidget> {
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               backgroundColor: isReservation
-                                  ? Colors.red
+                                  ? Color(0xffffb6c1)
                                   : selectedRow == rowIndex &&
                                           selectedCol == colIndex
                                       ? const Color(0xffBAC9FF)
