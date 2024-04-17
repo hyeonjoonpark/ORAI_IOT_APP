@@ -14,6 +14,9 @@ class _ParkingLotWidgetState extends State<ParkingLotWidget> {
   bool isEntry = false;
   int? row;
   int? col;
+  bool isReservation = false;
+  int? selectedRow;
+  int? selectedCol;
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -65,23 +68,36 @@ class _ParkingLotWidgetState extends State<ParkingLotWidget> {
                           ),
                           child: ElevatedButton(
                             onPressed: () {
-                              // 버튼을 누르면 이벤트를 실행합니다.
-                              print("사각형 인덱스: ($rowIndex, $colIndex)");
-                              // TODO : 주차장 선택 시 하나의 주차장만 선택되도록 구현
                               setState(() {
-                                isEntry = !isEntry;
-                                row = rowIndex;
-                                col = colIndex;
+                                // Toggle the isEntry state to switch between empty and occupied colors
+                                isReservation = !isReservation;
+                                print('isReservation : $isReservation');
+                                if (isReservation) {
+                                  // Change the color when the rectangle is selected
+                                  selectedRow = rowIndex;
+                                  selectedCol = colIndex;
+                                } else {
+                                  // Reset the selected row and column when the rectangle is deselected
+                                  selectedRow = null;
+                                  selectedCol = null;
+                                }
                               });
                             },
                             style: ElevatedButton.styleFrom(
                               foregroundColor: Colors.black,
-                              backgroundColor: !isEntry
-                                  ? const Color(0xffDDDDDD)
-                                  : const Color(0xffBAC9FF),
+                              // TODO : 예약된 상태, 주차중인 상태, 비어있는 상태에 따라
+                              // 색상을 바꿉니다.
+                              padding: const EdgeInsets.all(0),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
+                              backgroundColor: isReservation
+                                  ? Colors.red
+                                  : selectedRow == rowIndex &&
+                                          selectedCol == colIndex
+                                      ? const Color(0xffBAC9FF)
+                                      : const Color(
+                                          0xffF5F5F5), // Default color for empty rectangle
                             ),
                             child: !isEntry
                                 ? Text(
@@ -111,10 +127,10 @@ class _ParkingLotWidgetState extends State<ParkingLotWidget> {
                 margin: EdgeInsets.only(left: 0.05.sw, top: 0.03.sh),
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  row == null && col == null
+                  selectedRow == null && selectedCol == null
                       ? "주차자리를 선택해주세요"
-                      : "$row행 $col열 주차장을 선택하셨습니다.",
-                  style: row == null && col == null
+                      : "$selectedRow행 $selectedCol열 주차장을 선택하셨습니다.",
+                  style: selectedRow == null && selectedCol == null
                       ? const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w900,
@@ -152,7 +168,7 @@ class _ParkingLotWidgetState extends State<ParkingLotWidget> {
                     ),
                   ),
                   child: const Text(
-                    "주차하기",
+                    "주차장 예약하기",
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w900,
