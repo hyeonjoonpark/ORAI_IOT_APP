@@ -12,7 +12,7 @@ class MyCarWidget extends StatefulWidget {
 }
 
 class _MyCarWidgetState extends State<MyCarWidget> {
-  bool isEntry = false;
+  bool isEntry = true;
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -37,7 +37,7 @@ class _MyCarWidgetState extends State<MyCarWidget> {
                 alignment: Alignment.centerLeft,
                 margin: EdgeInsets.only(left: 0.06.sw),
                 child: const Text(
-                  "차량 번호 : 0000",
+                  "차량 번호 : 1234",
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.w900,
@@ -58,13 +58,13 @@ class _MyCarWidgetState extends State<MyCarWidget> {
                   color: isEntry
                       ? Colors.redAccent
                       : Color.fromARGB(255, 176, 176, 176),
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
                 ),
                 child: Container(
-                  margin: EdgeInsets.only(right: 0.05.sw),
+                  padding: EdgeInsets.only(right: 0.05.sw),
                   alignment: Alignment.centerRight,
                   child: Text(
-                    isEntry ? "원" : "주차중이 아닙니다",
+                    isEntry ? "0000원" : "주차중이 아닙니다",
                     style: const TextStyle(
                       fontSize: 24,
                       color: Colors.white,

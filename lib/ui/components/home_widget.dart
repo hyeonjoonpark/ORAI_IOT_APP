@@ -84,6 +84,7 @@ class _HomeWidgetState extends State<HomeWidget> {
               ),
 
               Container(
+                margin: const EdgeInsets.all(5),
                 width: 0.9.sw,
                 child: TextFormField(
                   focusNode: _focusNode,
@@ -113,6 +114,7 @@ class _HomeWidgetState extends State<HomeWidget> {
               // 나중에 구글 지도 API 연결합니다
               currentLocation != null
                   ? Container(
+                      margin: const EdgeInsets.all(5),
                       height: 0.3.sh,
                       width: 0.9.sw,
                       child: buildMap(currentLocation!),
@@ -123,6 +125,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                   const CircularProgressIndicator(), // 로딩 인디케이터를 표시합니다.
               const SizedBox(height: 20),
               Container(
+                margin: const EdgeInsets.all(5),
                 width: 0.9.sw,
                 child: ElevatedButton(
                   onPressed: () {

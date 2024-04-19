@@ -159,6 +159,7 @@ class _ParkingLotWidgetState extends State<ParkingLotWidget> {
                 height: 30,
               ),
               Container(
+                margin: const EdgeInsets.all(5),
                 width: 0.9.sw,
                 child: ElevatedButton(
                   onPressed: () {},
