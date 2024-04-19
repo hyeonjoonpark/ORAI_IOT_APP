@@ -63,13 +63,14 @@ class _ParkingLotWidgetState extends State<ParkingLotWidget> {
                           width: 140, // 사각형의 가로 크기
                           height: 70, // 사각형의 세로 크기
                           decoration: BoxDecoration(
-                            color: const Color(0xffDDDDDD), // 사각형의 색상
+                            color: const Color(
+                                0xffDDDDDD), // Default color, will be overridden below
                             borderRadius: BorderRadius.circular(10), // 모서리 둥글기
                           ),
                           child: ElevatedButton(
                             onPressed: () {
                               setState(() {
-                                // Toggle the isEntry state to switch between empty and occupied colors
+                                // Toggle the isReservation state to switch between empty and occupied colors
                                 isReservation = !isReservation;
                                 print('isReservation : $isReservation');
                                 if (isReservation) {
@@ -85,19 +86,20 @@ class _ParkingLotWidgetState extends State<ParkingLotWidget> {
                             },
                             style: ElevatedButton.styleFrom(
                               foregroundColor: Colors.black,
-                              // TODO : 예약된 상태, 주차중인 상태, 비어있는 상태에 따라
-                              // 색상을 바꿉니다.
                               padding: const EdgeInsets.all(0),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              backgroundColor: isReservation
-                                  ? Color(0xffffb6c1)
-                                  : selectedRow == rowIndex &&
+                              backgroundColor: !isEntry
+                                  ? isReservation &&
+                                          selectedRow == rowIndex &&
                                           selectedCol == colIndex
-                                      ? const Color(0xffBAC9FF)
+                                      ? Color(
+                                          0xffffb6c1) // Pink color for reserved
                                       : const Color(
-                                          0xffF5F5F5), // Default color for empty rectangle
+                                          0xffF5F5F5) // Gray color for empty
+                                  : const Color(
+                                      0xffBAC9FF), // Blue color for parked
                             ),
                             child: !isEntry
                                 ? Text(

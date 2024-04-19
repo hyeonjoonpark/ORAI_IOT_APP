@@ -14,7 +14,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     // DefaultTabController로 감싸줍니다.
     return const DefaultTabController(
-      length: 4, // 탭의 갯수
+      length: 3, // 탭의 갯수
       child: Scaffold(
         body: TabBarView(
           // TabBarView 추가

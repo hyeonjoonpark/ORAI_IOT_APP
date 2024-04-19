@@ -15,7 +15,7 @@ class HomeWidget extends StatefulWidget {
 }
 
 class _HomeWidgetState extends State<HomeWidget> {
-  late LatLng currentLocation;
+  LatLng? currentLocation;
   final FocusNode _focusNode = FocusNode();
   CustomMapController mapController = CustomMapController();
   final TextEditingController _controller = TextEditingController();
@@ -88,15 +88,17 @@ class _HomeWidgetState extends State<HomeWidget> {
                 child: TextFormField(
                   focusNode: _focusNode,
                   controller: _controller,
-                  onFieldSubmitted: (value) {
-                    // 검색 버튼을 누르면 필터링을 시작합니다.
-                    _controller.text == '부산소프트웨어마이스터고등학교'
-                        ? setState(() {
-                            currentLocation = mapController
-                                .getCoordinatesFromAddress('부산소프트웨어마이스터고등학교');
-                          })
-                        : currentLocation =
-                            mapController.getCoordinatesFromAddress(value);
+                  onFieldSubmitted: (value) async {
+                    // 비동기로 위치 정보를 가져오고, 상태를 업데이트합니다.
+                    try {
+                      LatLng? newLocation =
+                          await mapController.getCoordinatesFromAddress(value);
+                      setState(() {
+                        currentLocation = newLocation;
+                      });
+                    } catch (e) {
+                      print(e);
+                    }
                   },
                   decoration: const InputDecoration(
                     hintText: '근처 주차장을 검색해보세요',
@@ -109,11 +111,16 @@ class _HomeWidgetState extends State<HomeWidget> {
               ),
               const SizedBox(height: 20),
               // 나중에 구글 지도 API 연결합니다
-              Container(
-                height: 0.3.sh,
-                width: 0.9.sw,
-                child: buildMap(currentLocation),
-              ),
+              currentLocation != null
+                  ? Container(
+                      height: 0.3.sh,
+                      width: 0.9.sw,
+                      child: buildMap(currentLocation!),
+                    )
+                  :
+
+                  // currentLocation이 null일 때 보여줄 UI
+                  const CircularProgressIndicator(), // 로딩 인디케이터를 표시합니다.
               const SizedBox(height: 20),
               Container(
                 width: 0.9.sw,
