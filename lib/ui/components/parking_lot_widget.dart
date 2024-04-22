@@ -21,7 +21,7 @@ class _ParkingLotWidgetState extends State<ParkingLotWidget> {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       builder: (context, child) => Scaffold(
-        body: Center(
+        body: SingleChildScrollView(
           child: Column(
             children: [
               Container(
