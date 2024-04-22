@@ -59,38 +59,38 @@ class _HomeWidgetState extends State<HomeWidget> {
           ],
         ),
         body: SingleChildScrollView(
-          child: GestureDetector(
-            onTap: () {
-              FocusScope.of(context).unfocus();
-            },
-            child: Column(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(left: 0.05.sw, top: 0.03.sh),
-                  alignment: Alignment.centerLeft,
-                  child: const Text(
-                    "항상 주차장이 부족하여 힘드셨나요?",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w900,
-                    ),
+          child: Column(
+            children: [
+              Container(
+                margin: EdgeInsets.only(left: 0.05.sw, top: 0.03.sh),
+                alignment: Alignment.centerLeft,
+                child: const Text(
+                  "항상 주차장이 부족하여 힘드셨나요?",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w900,
                   ),
                 ),
-                Container(
-                  margin: EdgeInsets.only(left: 0.05.sw),
-                  alignment: Alignment.centerLeft,
-                  child: const Text(
-                    "지금 바로 주변 주차장을 검색하고 예약 해보세요!",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w900,
-                    ),
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 0.05.sw),
+                alignment: Alignment.centerLeft,
+                child: const Text(
+                  "지금 바로 주변 주차장을 검색하고 예약 해보세요!",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w900,
                   ),
                 ),
+              ),
 
-                Container(
-                  margin: const EdgeInsets.all(5),
-                  width: 0.9.sw,
+              Container(
+                margin: const EdgeInsets.all(5),
+                width: 0.9.sw,
+                child: GestureDetector(
+                  onTap: () => {
+                    FocusScope.of(context).requestFocus(_focusNode),
+                  },
                   child: TextFormField(
                     focusNode: _focusNode,
                     controller: _controller,
@@ -115,46 +115,46 @@ class _HomeWidgetState extends State<HomeWidget> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
-                // 나중에 구글 지도 API 연결합니다
-                currentLocation != null
-                    ? Container(
-                        margin: const EdgeInsets.all(5),
-                        height: 0.3.sh,
-                        width: 0.9.sw,
-                        child: buildMap(currentLocation!),
-                      )
-                    :
+              ),
+              const SizedBox(height: 20),
+              // 나중에 구글 지도 API 연결합니다
+              currentLocation != null
+                  ? Container(
+                      margin: const EdgeInsets.all(5),
+                      height: 0.3.sh,
+                      width: 0.9.sw,
+                      child: buildMap(currentLocation!),
+                    )
+                  :
 
-                    // currentLocation이 null일 때 보여줄 UI
-                    const CircularProgressIndicator(), // 로딩 인디케이터를 표시합니다.
-                const SizedBox(height: 20),
-                Container(
-                  margin: const EdgeInsets.all(5),
-                  width: 0.9.sw,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Get.offAndToNamed("/parkinglot");
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepPurple,
-                      padding: EdgeInsets.symmetric(vertical: 10),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
+                  // currentLocation이 null일 때 보여줄 UI
+                  const CircularProgressIndicator(), // 로딩 인디케이터를 표시합니다.
+              const SizedBox(height: 20),
+              Container(
+                margin: const EdgeInsets.all(5),
+                width: 0.9.sw,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Get.offAndToNamed("/parkinglot");
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepPurple,
+                    padding: EdgeInsets.symmetric(vertical: 10),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    child: const Text(
-                      '주차장 예약하기',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w900,
-                      ),
+                  ),
+                  child: const Text(
+                    '주차장 예약하기',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w900,
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
