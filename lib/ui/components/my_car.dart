@@ -12,7 +12,6 @@ class MyCarWidget extends StatefulWidget {
 }
 
 class _MyCarWidgetState extends State<MyCarWidget> {
-  bool isEntry = true;
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -28,11 +27,11 @@ class _MyCarWidgetState extends State<MyCarWidget> {
                   "내 차량 정보",
                   style: TextStyle(
                     fontSize: 16,
-                    fontWeight: FontWeight.w900,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               Container(
                 alignment: Alignment.centerLeft,
                 margin: EdgeInsets.only(left: 0.06.sw),
@@ -40,36 +39,7 @@ class _MyCarWidgetState extends State<MyCarWidget> {
                   "차량 번호 : 1234",
                   style: TextStyle(
                     fontSize: 24,
-                    fontWeight: FontWeight.w900,
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Container(
-                width: 0.9.sw,
-                height: 0.05.sh,
-                alignment: Alignment.centerLeft,
-                decoration: BoxDecoration(
-                  // isEntry 값에 따라 색깔이 바뀜
-                  // true -> red
-                  // false -> grey
-                  color: isEntry
-                      ? Colors.redAccent
-                      : Color.fromARGB(255, 176, 176, 176),
-                  borderRadius: const BorderRadius.all(Radius.circular(10)),
-                ),
-                child: Container(
-                  padding: EdgeInsets.only(right: 0.05.sw),
-                  alignment: Alignment.centerRight,
-                  child: Text(
-                    isEntry ? "0000원" : "주차중이 아닙니다",
-                    style: const TextStyle(
-                      fontSize: 24,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w900,
-                    ),
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
