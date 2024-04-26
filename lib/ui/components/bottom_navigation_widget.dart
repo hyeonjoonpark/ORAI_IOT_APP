@@ -10,13 +10,13 @@ Widget bottomNavigationBarWidget(BottomNavigationProvider provider) {
       ),
       BottomNavigationBarItem(
         icon: Icon(
-          Icons.people,
+          Icons.local_parking,
         ),
         label: 'Parking Lot',
       ),
       BottomNavigationBarItem(
         icon: Icon(
-          Icons.person,
+          Icons.info,
         ),
         label: 'My Car',
       ),
@@ -25,6 +25,6 @@ Widget bottomNavigationBarWidget(BottomNavigationProvider provider) {
       provider.updateCurrentPage(index);
     },
     currentIndex: provider.currentPage, // current page
-    selectedItemColor: Colors.deepPurple,
+    selectedItemColor: const Color(0xffBAC9FF),
   );
 }

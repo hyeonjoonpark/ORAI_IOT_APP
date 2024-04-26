@@ -138,8 +138,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                     Get.offAndToNamed("/parkinglot");
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.deepPurple,
-                    padding: EdgeInsets.symmetric(vertical: 10),
+                    backgroundColor: const Color(0xffBAC9FF),
+                    padding: const EdgeInsets.symmetric(vertical: 10),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -148,7 +148,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                     '주차장 예약하기',
                     style: TextStyle(
                       fontSize: 16,
-                      color: Colors.white,
+                      color: Colors.black,
                       fontWeight: FontWeight.w900,
                     ),
                   ),
