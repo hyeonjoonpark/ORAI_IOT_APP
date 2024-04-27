@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:orai/ui/components/nav_bar.dart';
 
 class ParkingLotWidget extends StatefulWidget {
   const ParkingLotWidget({super.key});
@@ -22,7 +21,6 @@ class _ParkingLotWidgetState extends State<ParkingLotWidget> {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       builder: (context, child) => Scaffold(
-        appBar: navBar(),
         body: SingleChildScrollView(
           child: Center(
             child: Column(
