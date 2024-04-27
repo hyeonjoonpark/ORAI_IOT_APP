@@ -10,15 +10,15 @@ Widget bottomNavigationBarWidget(BottomNavigationProvider provider) {
       ),
       BottomNavigationBarItem(
         icon: Icon(
-          Icons.local_parking,
+          Icons.directions_car,
         ),
-        label: 'Parking Lot',
+        label: 'My Car',
       ),
       BottomNavigationBarItem(
         icon: Icon(
           Icons.info,
         ),
-        label: 'My Car',
+        label: 'My Page',
       ),
     ],
     onTap: (index) {
