@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:http/http.dart' as http;
 
 class ParkingLotWidget extends StatefulWidget {
   const ParkingLotWidget({super.key});
@@ -17,8 +18,22 @@ class _ParkingLotWidgetState extends State<ParkingLotWidget> {
   bool isReservation = false;
   int? selectedRow;
   int? selectedCol;
+  Color? color;
   @override
   Widget build(BuildContext context) {
+    Future<void> getStatus() async {
+      await http
+          .get(Uri.parse("http://localhost:8080/api/parkinglot/read/status"))
+          .then((response) {
+        print(response.body);
+
+        if (response.statusCode == 200) {
+          print(response.body);
+          print(response.statusCode);
+        }
+      });
+    }
+
     return ScreenUtilInit(
       builder: (context, child) => Scaffold(
         body: SingleChildScrollView(
