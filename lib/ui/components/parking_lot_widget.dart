@@ -44,7 +44,7 @@ class _ParkingLotWidgetState extends State<ParkingLotWidget> {
                   margin: EdgeInsets.only(left: 0.05.sw),
                   alignment: Alignment.centerLeft,
                   child: const Text(
-                    "원하시는 주차자리를 선택하세요",
+                    "비어있는 자리를 확인해보세요",
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w900,
@@ -142,61 +142,61 @@ class _ParkingLotWidgetState extends State<ParkingLotWidget> {
                     fontWeight: FontWeight.w900,
                   ),
                 ),
-                Container(
-                  margin: EdgeInsets.only(left: 0.05.sw, top: 0.03.sh),
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    selectedRow == null && selectedCol == null
-                        ? "주차자리를 선택해주세요"
-                        : "$selectedRow행 $selectedCol열 주차장을 선택하셨습니다.",
-                    style: selectedRow == null && selectedCol == null
-                        ? const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w900,
-                            color: Colors.red,
-                          )
-                        : const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w900,
-                          ),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(left: 0.05.sw),
-                  alignment: Alignment.centerLeft,
-                  child: const Text(
-                    "주차 요금은 1시간당 1000원입니다.",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w900,
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                Container(
-                  margin: const EdgeInsets.all(5),
-                  width: 0.9.sw,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.black,
-                      backgroundColor: const Color(0xffBAC9FF),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                    child: const Text(
-                      "주차장 예약하기",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w900,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
+                // Container(
+                //   margin: EdgeInsets.only(left: 0.05.sw, top: 0.03.sh),
+                //   alignment: Alignment.centerLeft,
+                //   child: Text(
+                //     selectedRow == null && selectedCol == null
+                //         ? "주차자리를 선택해주세요"
+                //         : "$selectedRow행 $selectedCol열 주차장을 선택하셨습니다.",
+                //     style: selectedRow == null && selectedCol == null
+                //         ? const TextStyle(
+                //             fontSize: 16,
+                //             fontWeight: FontWeight.w900,
+                //             color: Colors.red,
+                //           )
+                //         : const TextStyle(
+                //             fontSize: 16,
+                //             fontWeight: FontWeight.w900,
+                //           ),
+                //   ),
+                // ),
+                // Container(
+                //   margin: EdgeInsets.only(left: 0.05.sw),
+                //   alignment: Alignment.centerLeft,
+                //   child: const Text(
+                //     "주차 요금은 1시간당 1000원입니다.",
+                //     style: TextStyle(
+                //       fontSize: 16,
+                //       fontWeight: FontWeight.w900,
+                //     ),
+                //   ),
+                // ),
+                // const SizedBox(
+                //   height: 30,
+                // ),
+                // Container(
+                //   margin: const EdgeInsets.all(5),
+                //   width: 0.9.sw,
+                //   child: ElevatedButton(
+                //     onPressed: () {},
+                //     style: ElevatedButton.styleFrom(
+                //       foregroundColor: Colors.black,
+                //       backgroundColor: const Color(0xffBAC9FF),
+                //       shape: RoundedRectangleBorder(
+                //         borderRadius: BorderRadius.circular(10),
+                //       ),
+                //     ),
+                //     child: const Text(
+                //       "주차장 예약하기",
+                //       style: TextStyle(
+                //         fontSize: 16,
+                //         fontWeight: FontWeight.w900,
+                //         color: Colors.black,
+                //       ),
+                //     ),
+                //   ),
+                // ),
               ],
             ),
           ),
